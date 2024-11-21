@@ -1,4 +1,5 @@
 import './Information.css'
+import PropTypes from 'prop-types'
 
 const InformationLayout = ({ currentPlayer, isGameEnded, isDraw }) => {
   let infoText = ''
@@ -24,6 +25,12 @@ const InformationLayout = ({ currentPlayer, isGameEnded, isDraw }) => {
       <h2>{infoText}</h2>
     </div>
   )
+}
+
+InformationLayout.propTypes = {
+  currentPlayer: PropTypes.string,
+  isGameEnded: PropTypes.bool,
+  isDraw: PropTypes.bool,
 }
 
 export default InformationLayout

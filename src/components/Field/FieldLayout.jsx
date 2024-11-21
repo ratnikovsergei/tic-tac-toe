@@ -1,4 +1,5 @@
 import './Field.css'
+import PropTypes from 'prop-types'
 
 const FieldLayout = ({ field, onClick }) => (
   <div className="field">
@@ -13,5 +14,10 @@ const FieldLayout = ({ field, onClick }) => (
     ))}
   </div>
 )
+
+FieldLayout.propTypes = {
+  field: PropTypes.arrayOf(PropTypes.string),
+  onClick: PropTypes.func,
+}
 
 export default FieldLayout

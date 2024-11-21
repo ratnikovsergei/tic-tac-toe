@@ -1,6 +1,7 @@
 import './Game.css'
 import Information from './components/Information/Information'
 import Field from './components/Field/Field'
+import PropTypes from 'prop-types'
 
 const GameLayout = ({
   currentPlayer,
