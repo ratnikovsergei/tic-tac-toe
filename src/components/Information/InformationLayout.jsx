@@ -1,22 +1,20 @@
-import './Information.css'
-import PropTypes from 'prop-types'
+import './Information.css';
+import { store } from '../../store';
 
-const InformationLayout = ({ currentPlayer, isGameEnded, isDraw }) => {
-  let infoText = ''
+export const InformationLayout = () => {
+  const state = store.getState();
 
-  if (isDraw) {
-    infoText = 'Увы, ничья :)'
-  } else if (isGameEnded) {
-    if (currentPlayer === 'X') {
-      infoText = 'Победили крестики!'
-    } else {
-      infoText = 'Победили нолики!'
-    }
+  let infoText = '';
+
+  if (state.isDraw) {
+    infoText = 'Увы, ничья :)';
+  } else if (state.isGameEnded) {
+    infoText = 'Игра окончена!';
   } else {
-    if (currentPlayer === 'X') {
-      infoText = 'Ходят крестики'
+    if (state.currentPlayer === 'X') {
+      infoText = 'Ходят крестики';
     } else {
-      infoText = 'Ходят нолики'
+      infoText = 'Ходят нолики';
     }
   }
 
@@ -24,13 +22,5 @@ const InformationLayout = ({ currentPlayer, isGameEnded, isDraw }) => {
     <div className="information">
       <h2>{infoText}</h2>
     </div>
-  )
-}
-
-InformationLayout.propTypes = {
-  currentPlayer: PropTypes.string,
-  isGameEnded: PropTypes.bool,
-  isDraw: PropTypes.bool,
-}
-
-export default InformationLayout
+  );
+};

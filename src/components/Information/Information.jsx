@@ -1,20 +1,14 @@
-import InformationLayout from './InformationLayout'
-import PropTypes from 'prop-types'
+import { InformationLayout } from './InformationLayout';
+import { store } from '../../store';
 
-const Information = ({ currentPlayer, isGameEnded, isDraw }) => {
+export const Information = () => {
+  const state = store.getState();
+
   return (
     <InformationLayout
-      currentPlayer={currentPlayer}
-      isGameEnded={isGameEnded}
-      isDraw={isDraw}
+      currentPlayer={state.currentPlayer}
+      isGameEnded={state.isGameEnded}
+      isDraw={state.isDraw}
     />
-  )
-}
-
-Information.propTypes = {
-  currentPlayer: PropTypes.string,
-  isGameEnded: PropTypes.bool,
-  isDraw: PropTypes.bool,
-}
-
-export default Information
+  );
+};

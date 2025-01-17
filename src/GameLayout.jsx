@@ -1,17 +1,19 @@
 import './Game.css';
-import Information from './components/Information/Information';
-import Field from './components/Field/Field';
+import { Information, Field } from './components';
+import { store } from './store';
 
-const GameLayout = ({ currentPlayer, isGameEnded, isDraw, field, onClick, reset }) => {
+export const GameLayout = ({ onClick, reset }) => {
+  const state = store.getState();
+
   return (
     <>
       <div className="game">
         <Information
-          currentPlayer={currentPlayer}
-          isGameEnded={isGameEnded}
-          isDraw={isDraw}
+          currentPlayer={state.currentPlayer}
+          isGameEnded={state.isGameEnded}
+          isDraw={state.isDraw}
         />
-        <Field field={field} onClick={onClick} />
+        <Field field={state.field} onClick={onClick} />
         <button className="reset-button" onClick={reset}>
           Играть сначала
         </button>
@@ -19,5 +21,3 @@ const GameLayout = ({ currentPlayer, isGameEnded, isDraw, field, onClick, reset 
     </>
   );
 };
-
-export default GameLayout;

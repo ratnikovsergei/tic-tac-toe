@@ -1,23 +1,16 @@
-import './Field.css'
-import PropTypes from 'prop-types'
+import './Field.css';
+import { store } from '../../store';
 
-const FieldLayout = ({ field, onClick }) => (
-  <div className="field">
-    {field.map((cell, index) => (
-      <button
-        className={`cell-btn ${cell}`}
-        key={index}
-        onClick={() => onClick(index)}
-      >
-        {cell}
-      </button>
-    ))}
-  </div>
-)
+export const FieldLayout = ({ onClick }) => {
+  const state = store.getState();
 
-FieldLayout.propTypes = {
-  field: PropTypes.arrayOf(PropTypes.string),
-  onClick: PropTypes.func,
-}
-
-export default FieldLayout
+  return (
+    <div className="field">
+      {state.field.map((cell, index) => (
+        <button className={`cell-btn ${cell}`} key={index} onClick={() => onClick(index)}>
+          {cell}
+        </button>
+      ))}
+    </div>
+  );
+};

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import GameLayout from './GameLayout';
+import { GameLayout } from './GameLayout';
 import { store } from './store';
 
-export default Game = () => {
+export const Game = () => {
   const [state, setState] = useState(store.getState());
 
   useEffect(() => {

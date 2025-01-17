@@ -1,13 +1,8 @@
-import FieldLayout from './FieldLayout'
-import PropTypes from 'prop-types'
+import { FieldLayout } from './FieldLayout';
+import { store } from '../../store';
 
-const Field = ({ field, onClick }) => {
-  return <FieldLayout field={field} onClick={onClick} />
-}
+export const Field = ({ onClick }) => {
+  const state = store.getState();
 
-Field.propTypes = {
-  field: PropTypes.arrayOf(PropTypes.string),
-  onClick: PropTypes.func,
-}
-
-export default Field
+  return <FieldLayout field={state.field} onClick={onClick} />;
+};
