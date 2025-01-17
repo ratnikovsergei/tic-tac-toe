@@ -1,16 +1,8 @@
-import './Game.css'
-import Information from './components/Information/Information'
-import Field from './components/Field/Field'
-import PropTypes from 'prop-types'
+import './Game.css';
+import Information from './components/Information/Information';
+import Field from './components/Field/Field';
 
-const GameLayout = ({
-  currentPlayer,
-  isGameEnded,
-  isDraw,
-  field,
-  onClick,
-  reset,
-}) => {
+const GameLayout = ({ currentPlayer, isGameEnded, isDraw, field, onClick, reset }) => {
   return (
     <>
       <div className="game">
@@ -25,7 +17,7 @@ const GameLayout = ({
         </button>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default GameLayout
+export default GameLayout;
