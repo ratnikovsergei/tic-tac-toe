@@ -3,12 +3,19 @@ import { store } from '../../store';
 
 export const Information = () => {
   const state = store.getState();
+  let infoText = '';
 
-  return (
-    <InformationLayout
-      currentPlayer={state.currentPlayer}
-      isGameEnded={state.isGameEnded}
-      isDraw={state.isDraw}
-    />
-  );
+  if (state.isDraw) {
+    infoText = 'Увы, ничья :)';
+  } else if (state.isGameEnded) {
+    infoText = 'Игра окончена!';
+  } else {
+    if (state.currentPlayer === 'X') {
+      infoText = 'Ходят крестики';
+    } else {
+      infoText = 'Ходят нолики';
+    }
+  }
+
+  return <InformationLayout infoText={infoText} />;
 };

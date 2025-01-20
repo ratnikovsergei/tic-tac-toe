@@ -12,25 +12,13 @@ export const Game = () => {
     return unsubscribe;
   }, []);
 
-  const handleClick = (index) => {
-    if (state.field[index] || state.isGameEnded) return;
-    store.dispatch({ type: 'SET_FIELD', payload: { index } });
-  };
-
   const restartGame = () => {
     store.dispatch({ type: 'RESTART_GAME' });
   };
 
   return (
     <>
-      <GameLayout
-        field={state.field}
-        reset={restartGame}
-        onClick={handleClick}
-        currentPlayer={state.currentPlayer}
-        isGameEnded={state.isGameEnded}
-        isDraw={state.isDraw}
-      />
+      <GameLayout reset={restartGame} />
     </>
   );
 };
