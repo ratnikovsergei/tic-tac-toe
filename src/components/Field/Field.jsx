@@ -1,11 +1,14 @@
 import { FieldLayout } from './FieldLayout';
-import { store } from '../../store';
+import { useDispatch, useSelector } from 'react-redux';
+import { setField } from '../../actions';
 
 export const Field = () => {
-  const state = store.getState();
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.game);
+
   const handleClick = (index) => {
     if (state.field[index] || state.isGameEnded) return;
-    store.dispatch({ type: 'SET_FIELD', payload: { index } });
+    dispatch(setField(index));
   };
 
   return <FieldLayout onClick={handleClick} />;

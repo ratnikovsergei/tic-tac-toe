@@ -1,15 +1,12 @@
 import './Game.css';
 import { Information, Field } from './components';
-import { store } from './store';
 
-export const GameLayout = ({ handleClick, reset }) => {
-  const state = store.getState();
-
+export const GameLayout = ({ reset }) => {
   return (
     <>
       <div className="game">
         <Information />
-        <Field onClick={handleClick} />
+        <Field />
         <button className="reset-button" onClick={reset}>
           Играть сначала
         </button>

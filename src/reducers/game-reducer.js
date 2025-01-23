@@ -1,22 +1,17 @@
-import { checkWinner } from './utils/utils';
+import { checkWinner } from '../utils/utils';
 
-const initialState = {
+export const initialState = {
   currentPlayer: 'X',
   isGameEnded: false,
   isDraw: false,
   field: Array(9).fill(''),
 };
 
-export const reducer = (state = initialState, { type, payload }) => {
-  switch (type) {
-    case 'SET_CURRENT_PLAYER':
-      return {
-        ...state,
-        currentPlayer: payload,
-      };
+export const gameReducer = (state = initialState, action) => {
+  switch (action.type) {
     case 'SET_FIELD':
       const newField = [...state.field];
-      newField[payload.index] = state.currentPlayer;
+      newField[action.payload.index] = state.currentPlayer;
       const isGameEnded = checkWinner(newField);
       const isDraw = newField.every((cell) => cell);
       return {
@@ -26,8 +21,10 @@ export const reducer = (state = initialState, { type, payload }) => {
         isDraw,
         currentPlayer: state.currentPlayer === 'X' ? 'O' : 'X',
       };
+
     case 'RESTART_GAME':
-      return initialState;
+      return { ...initialState };
+
     default:
       return state;
   }

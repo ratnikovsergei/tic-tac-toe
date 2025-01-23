@@ -1,8 +1,8 @@
 import './Field.css';
-import { store } from '../../store';
+import { useSelector } from 'react-redux';
 
 export const FieldLayout = ({ onClick }) => {
-  const state = store.getState();
+  const state = useSelector((state) => state.game);
 
   return (
     <div className="field">

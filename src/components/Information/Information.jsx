@@ -1,8 +1,8 @@
 import { InformationLayout } from './InformationLayout';
-import { store } from '../../store';
+import { useSelector } from 'react-redux';
 
 export const Information = () => {
-  const state = store.getState();
+  const state = useSelector((state) => state.game);
   let infoText = '';
 
   if (state.isDraw) {
