@@ -1,9 +1,15 @@
-import './Information.css';
+import { Component } from 'react';
 
-export const InformationLayout = ({ infoText }) => {
-  return (
-    <div className="information">
-      <h2>{infoText}</h2>
-    </div>
-  );
-};
+export class InformationLayout extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div className="text-center mb-4">
+        <span className="text-2xl font-bold">{this.props.infoText}</span>
+      </div>
+    );
+  }
+}

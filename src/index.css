@@ -1,5 +1,1 @@
-body {
-  display: flex;
-  place-content: center;
-  position: relative;
-}
+@import 'tailwindcss';
